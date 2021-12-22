@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         override fun onServiceDisconnected(name: ComponentName) {
             mServiceBound = false
         }
+
         override fun onServiceConnected(name: ComponentName, service: IBinder) {
             val myBinder = service as MyBoundService.MyBinder
             mBoundService = myBinder.getService

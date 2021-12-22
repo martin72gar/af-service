@@ -40,15 +40,18 @@ class MyBoundService : Service() {
         super.onDestroy()
         Log.d(TAG, "onDestroy: ")
     }
+
     override fun onUnbind(intent: Intent): Boolean {
         Log.d(TAG, "onUnbind: ")
         mTimer.cancel()
         return super.onUnbind(intent)
     }
+
     override fun onRebind(intent: Intent) {
         super.onRebind(intent)
         Log.d(TAG, "onRebind: ")
     }
+
     internal inner class MyBinder : Binder() {
         val getService: MyBoundService = this@MyBoundService
     }
